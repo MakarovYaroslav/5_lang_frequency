@@ -8,13 +8,12 @@ def load_data(filepath):
     return file_text
 
 
-def get_most_frequent_words(text):
-    COUNT_OF_WORDS = 10
+def get_most_frequent_words(text, word_amount=10):
     word_frequency = {}
     words = []
     words = re.findall('\w+', text.lower())
-    word_frequency = collections.Counter(words).most_common(COUNT_OF_WORDS)
-    print ("10 наиболее часто встречающихся слов:")
+    word_frequency = collections.Counter(words).most_common(word_amount)
+    print ("%d наиболее часто встречающихся слов:" % word_amount)
     for word in word_frequency:
         print (("%s - %s повторений") % (word[0], word[1]))
 
